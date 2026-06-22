@@ -1,0 +1,23 @@
+09/06/2026
+     
+sprint 0
+    servlet frontcotrollerservelet
+        preocessRequest(...)
+        output(url)
+    on le declare dans le web.xml de test
+
+sprint 1
+    package anotation
+        annotaioncontrolleur
+            donner une list de package qui sont des controllers
+            comment faire pour que le frame detecte les controllers? 
+        @controller
+        but que le frame determine les classes qui sont des controllers 
+        frontcontroller
+            liste des controllers
+        
+        but: affiche la liste des controllers
+Sprint 2
+    cherche les methodes d'un controller
+    
+    
