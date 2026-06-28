@@ -19,5 +19,10 @@ sprint 1
         but: affiche la liste des controllers
 Sprint 2
     cherche les methodes d'un controller
-    
+    webmapping
+        annotation pour les methodes d'un controller
+        @webmapping(url="/accueil")
+        @webmapping(url="/liste")
+        @webmapping(url="/contact")
+spint 3
     
