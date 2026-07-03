@@ -20,9 +20,18 @@ sprint 1
 Sprint 2
     cherche les methodes d'un controller
     webmapping
-        annotation pour les methodes d'un controller
+        annotation pour les methodes d'un controller 
         @webmapping(url="/accueil")
         @webmapping(url="/liste")
         @webmapping(url="/contact")
 spint 3
+    bis
+        affiche le syteme println par methode ()
+    tsotra
+        determine si une methode est un get ou un post 
+        et si une fonction existe deja (qu'il y a deja un post et un get ) ca affiche url deja utiliser un system println
+        
+sprint 4
+    context listner  
+        la meth init utiliser pour 1er appel 
     

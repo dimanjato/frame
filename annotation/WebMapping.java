@@ -7,10 +7,13 @@ import java.lang.annotation.Target;
 
 /**
  * Annote une méthode d'un contrôleur pour lui associer une URL.
- * Exemple : @WebMapping(url = "/users/list")
+ * Exemple : @WebMapping(url = "/users/list", method = "GET")
+ * 
+ * method peut être "GET", "POST", ou "" (les deux).
  */
 @Retention(RetentionPolicy.RUNTIME) // Vue à l'exécution par le framework
 @Target(ElementType.METHOD)          // Applicable uniquement sur les méthodes
 public @interface WebMapping {
     String url();
+    String method() default "";
 }
