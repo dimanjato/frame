@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import mapping.Mapping;
 import util.Utilitaire;
+import java.lang.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -114,5 +115,34 @@ public class FrontControllerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response, "POST");
+    } 
+    object result =method.invoke(instance);
+
+    if (result != null){
+        if (result instanceof ModelView){
+            ModelView mv = (ModelView) result;
+
+            for(Map.class.Entry<String, Object> entry : mv.getModel().entrySet()){
+                request.setAttribute(entry.getKey(), entry.getValue());
+            }
+            String viewPath = mv.getViewName();
+            if(viewPath!= null && !viewPath.isEmpty()){
+                request.getRequestDispatcher(viewPath).forward(request, response);
+            } else {
+                throw new ServletException("Le nom de la vue est vide ou null.");
+            }
+        } else if(result.toString().startsWith("/")){
+            String viewPath = result.toString();
+            request.getRequestDispatcher(viewPath).forward(request, response);
+        } else {
+            out.println("<!DOCTYPE html>");
+            out.println("<html><head><meta charset='UTF-8'><title>Résultat</title></head><body>");
+            out.println("<h1>Résultat de l'invocation</h1>");
+            out.println("<p><strong>Classe :</strong> " + mapping.getClassName() + "</p>");
+            out.println("<p><strong>Méthode :</strong> " + mapping.getMethodName() + "()</p>");
+            out.println("<p><strong>Méthode HTTP :</strong> " + httpMethod + "</p>");
+            out.println("<p><strong>Résultat :</strong> " + (result != null ? result.toString() : "(void)") + "</p>");
+            out.println("</body></html>");
+        }
     }
 }
